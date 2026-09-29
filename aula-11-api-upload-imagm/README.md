@@ -49,3 +49,9 @@ Nesta aula foi possível desenvolver uma API de upload de imagens utilizando Nes
 Também foi possível utilizar o Multer para receber e processar a imagem enviada através do Insomnia. Após o envio, o arquivo foi armazenado corretamente na pasta uploads do projeto.
 
 Com essa atividade, foi possível compreender na prática como uma API pode receber arquivos enviados pelo usuário e realizar seu armazenamento, servindo como base para o desenvolvimento de aplicações que trabalham com imagens e outros tipos de arquivos.
+
+Conclusao
+
+Nesta aula, foi desenvolvido o recurso de upload de imagens utilizando NestJS, colocando em prática conceitos de criação de API, gerenciamento de arquivos e organização da aplicação. Foi implementado o recebimento das imagens através de requisições HTTP e o armazenamento dos arquivos enviados na aplicação.
+
+A atividade permitiu compreender melhor como trabalhar com arquivos em uma API, além de reforçar conhecimentos sobre controllers, módulos, rotas e estruturação de projetos com NestJS.
