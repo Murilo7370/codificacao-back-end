@@ -11,7 +11,7 @@ export class ImagemController {
     @UseInterceptors(
         FileInterceptor('file',{
             storage:diskStorage({
-                destination: '/uploads',
+                destination: './uploads',
                 filename: (req, file, callback) =>{
                     const nomeArquivo = `${uuidv4()}${extname(file.originalname)}`;
                     callback(null, nomeArquivo);
@@ -25,9 +25,11 @@ export class ImagemController {
                     return callback(
                         new BadRequestException('Apenas arquivos jpg, jpeg, png, gif e webp são suportados!'),
                         false,
+                        
                     );
-                    callback(null, true);
+                     
                 }
+                callback(null, true);
             }
         }),
     )
