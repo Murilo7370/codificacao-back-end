@@ -1,0 +1,53 @@
+{
+    "texto": "Time para vencer a Liga dos Campeões da UEFA edição 2026/27",
+    "autor": "TNT Sports",
+    "data": "20/10/2026",
+
+    "curtidas": [
+        {"nome":"TNT Sports"}, 
+        {"nome":"Neymar Junior"},
+        {"nome":"Cristiano Ronaldo"},
+        {"nome":"Lionel Messi"},
+        {"nome":"Ronaldo Fenomeno"},
+        {"nome":"Kaka"},
+        {"nome":"Vini Junior"}
+    ],
+
+    "comentarios": [
+    {
+        "autor": "TNT Sports",
+        "texto": "Rapaz, uma disputa muito boa, muitos times bons e qualificados",
+        "data": "20/10/2026"
+    },
+    {
+        "autor": "Neymar Junior",
+        "texto": "Vai ser uma temporada incrível de futebol vamos Barça!",
+        "data": "20/10/2026"
+    },
+    {
+        "autor": "Cristiano Ronaldo",
+        "texto": "A Champions League é sempre especial.",
+        "data": "20/10/2026"
+    },
+    {
+        "autor": "Lionel Messi",
+        "texto": "Muitos times fortes, vamos Visca Barça.",
+        "data": "21/10/2026"
+    },
+    {
+        "autor": "Ronaldo Fenomeno",
+        "texto": "Quero ver muitos gols nessa edição so time fera!",
+        "data": "21/10/2026"
+    },
+    {
+        "autor": "Kaka",
+        "texto": "Que vença o melhor time, a Champions merece.",
+        "data": "22/10/2026"
+    },
+    {
+        "autor": "Vini Junior",
+        "texto": "Bora pra cima, vai ter muito jogo bom Hala Madrid!",
+        "data": "22/10/2026"
+    }
+  ]
+}
