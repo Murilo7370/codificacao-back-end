@@ -4,6 +4,7 @@ import { Model } from "mongoose";
 import { CreateAlunoDto } from "./dto/create-aluno.dto.js";
 import { UpdateAlunoDto } from "./dto/update-aluno.dto.js";
 import { Aluno, AlunoDocument } from "./dto/schemas/aluno.schema.js";
+
 @Injectable()
 export class AlunosService {
     constructor(@InjectModel(Aluno.name) private alunoModel: Model<AlunoDocument>) {}
@@ -19,12 +20,32 @@ export class AlunosService {
         return createdAluno.save();
     }
 
-    async findAll(): Promise <Aluno[]>{
-        return this.alunoModel.find().exec();
+    // async findAll(): Promise <Aluno[]>{
+    //     return this.alunoModel.find().exec();
+    // }
+
+    //!Metodo para buscar os alunos com paginação
+    async findPage(page: number, limit: number){
+        const skip = (page -1) *limit;
+        const [data, total] = await Promise.all([
+            this.alunoModel.find().skip(skip).limit(limit).exec(),
+            this.alunoModel.countDocuments().exec(),
+        ]);
+
+        return {
+            data,
+            meta:{
+                total,
+                page,
+                limit,
+                totalPages: Math.ceil(total/limit),
+            },
+        };
     }
 
     async findOne(id: string ): Promise<Aluno> {
        const aluno = await this.alunoModel.findById(id).exec();
+       
        if(!aluno){
         throw new NotFoundException(`Aluno com ID ${id} não encontrado.`);
        }
