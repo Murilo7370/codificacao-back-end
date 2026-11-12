@@ -18,11 +18,7 @@ import { ApiTags,
 
     @ApiTags('alunos')
     @Controller('alunos')
-
-
-
-    @Controller('alunos')
-export class AlunosController {
+export class AlunosController{
    constructor(private readonly alunosService: AlunosService){}
 
    @Post()
@@ -41,25 +37,25 @@ export class AlunosController {
         return this.alunosService.create(createAlunoDto);
     }
 
-    @Get()
-    @ApiOperation({
-        summary: 'Listar todos os alunos',
-    })
-    @ApiResponse({
-        status: 200,
-        description:'Lista de alunos retornada com sucesso',
-    })
-    @ApiResponse({
-        status: 404,
-        description: 'Nenhum aluno encontrado',
-    })
+    //@Get()
+    //@ApiOperation({
+       // summary: 'Listar todos os alunos',
+    //})
+    //@ApiResponse({
+        //status: 200,
+        //description:'Lista de alunos retornada com sucesso',
+   // })
+    //@ApiResponse({
+       // status: 404,
+        //description: 'Nenhum aluno encontrado',
+    //})
     //findAll(){
         //return this.alunosService.findAll();
     //}
 
     @Get()
     @ApiOperation({
-        summary: 'Listar alunos com paginaçaõ',
+        summary: 'Listar alunos com paginação',
     }) 
     @ApiResponse({
         status: 200,
@@ -81,9 +77,27 @@ export class AlunosController {
         type: Number,
         description: 'Numero de itens por pagina (padrão: 10)',
     })
-    findPage(@Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number, 
-    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number){
-        return this.alunosService.findPage(page, limit)
+
+    @ApiQuery({
+        name: 'nome',
+        required: false,
+        type: String,
+        description: 'Filtrar alunos pelo nome (ex: Jamilly)',
+    })
+
+    @ApiQuery({
+        name: 'curso',
+        required: false,
+        type: String,
+        description: 'Filtrar alunos pelo curso (ex: Engenharia Civil)',
+    })
+    findPage(
+        @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number, 
+    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
+    @Query('nome')nome?:string,
+    @Query('curso')curso?:string
+    ){
+        return this.alunosService.findPage(page, limit, nome, curso);
     }
 
     @Get(':id')
